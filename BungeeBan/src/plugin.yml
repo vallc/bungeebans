@@ -1,0 +1,11 @@
+name: BungeeBan
+main: net.valc.bungeebans.Main
+author: valc
+version: 1.0
+description: A fully customizable and easy to use BungeeCord plugin managing Bans and Mutes, and much more!
+commands:
+ ban:
+ mute:
+ unban:
+ unmute:
+ check:

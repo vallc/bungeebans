@@ -1,0 +1,106 @@
+#This is the configuration for [RE-CODED] BungeeBan by valc.
+
+#If you want to use MySQL, enter your login data here. Make sure your user has access to the database
+mysql:
+  host: 'localhost'
+  port: 3306
+  username: 'root'
+  password: 'r'
+  database: 'test'
+  
+#Edit the language configuration here. It should be self explanatory.
+#
+#Theese are the placeholders available: 
+#(Of course not every placeholder is available everywhere. They are only available, where they make sense.)
+#
+#{NAME} - The name of the player
+#{UUID} - The uuid of the player
+#{REASON} - The reason for a players ban/mute/kick
+#{REMAININGTIME} - The remaining time of the ban/mute, using the below specified timeformat
+#{BY} - The name of the person who has banned/muted/kicked the player
+#{DETAILS} - If a message has some details, use this. (Only useful for internal error message)
+#
+lang:
+
+  prefix: '&8| &3&lBungee&b&lBan &8| '
+  console_prefix: '[BungeeBan] '
+  time_format: '{DAYS} day(s), {HOURS} hour(s), {MINUTES} min(s) and {SECONDS} sec(s)'
+  time_format_permanent: 'PERMANENT'
+  
+  errors:
+    no_permissions: '&cYou are not allowed to use this.'
+    player_not_found: '&cThis player could not be found.'
+    player_not_online: '&cThe player &e{NAME} &cis not online.'
+    internal_error: '&cAn internal error occured: &e{DETAILS}'
+    player_already_banned: '&cThe player &e{NAME} &cis already banned.'
+    player_not_banned: '&cThe player &e{NAME} &cis not banned.'
+    player_already_muted: '&cThe player &e{NAME} &cis already muted.'
+    player_not_muted: '&cThe player &e{NAME} &cis not muted.'
+    unknown_timeunit: '&cUnknown timunit.'
+
+  banmessage:
+  - '&cYou have been banned from the Server.'
+  - '&cReason: &e{REASON}'
+  - '&cBanned By: &e{BY}'
+  - '&cRemaining time: &e{REMAININGTIME}'
+
+  mutemessage:
+  - '&cYou are muted from the Server.'
+  - '&cReason: &e{REASON}'
+  - '&cBanned By: &e{BY}'
+  - '&cRemaining time: &e{REMAININGTIME}'
+
+  kickedmessage:
+  - '&cYou have been kicked from the server!'
+  - '&cReason: &e{REASON}'
+  - '&cKicked By: &e{BY}'
+
+  commands:
+    ban:
+      syntax: '&cUsage: &c/ban <Player> <Time> <TimeUnit> <Reason>'
+      banned: '&aYou have successfully banned &e{NAME}&a.'
+      broadcast:
+      - '&e{NAME} &chas been banned by &e{BY}&c.'
+      - '&cReason: &e{REASON}'
+      - '&cTime: &e{REMAININGTIME}'
+    unban:
+      syntax: '&cUsage: &c/unban <Player>'
+      unbanned: '&aYou have successfully unbanned &e{NAME}&a.'
+      broadcast:
+      - '&e{NAME} &chas been unbanned by &e{BY}&c.'
+    mute:
+      syntax: '&cUsage: &c/mute <Player> <Time> <TimeUnit> <Reason>'
+      muted: '&aYou have successfully muted &e{NAME}&a.'
+      broadcast:
+      - '&e{NAME} &chas been muted by &e{BY}&c.'
+      - '&cReason: &e{REASON}'
+      - '&cTime: &e{REMAININGTIME}'
+    unmute:
+      syntax: '&cUsage: /unmute <Player>'
+      unmuted: '&aYou have successfully unmuted &e{NAME}&a.'
+      broadcast:
+      - '&e{NAME} &chas been unmuted by &e{BY}&c.'
+    kick:
+      syntax: '&cUsage: &c/kick <Player> <Reason>'
+      kicked: '&aYou have successfully kicked &e{NAME}&a.'
+      broadcast:
+      - '&e{NAME} &chas been kicked by &e{BY}&c.'
+      - '&cReason: &e{REASON}'
+    check:
+      syntax: '&cUsage: &c/check <Player>'
+      banned:
+        positive:
+        - '&cThe player &e{NAME} &cis &4&lBANNED&c.'
+        - '&cReason: &e{REASON}'
+        - '&cBy: &e{BY}'
+        - '&cRemaining time: &e{REMAININGTIME}'
+        negative:
+        - '&fThe player &e{NAME} &fis not banned.'
+      muted:
+        positive:
+        - '&cThe player &e{NAME} &cis &4&lMUTED&c.'
+        - '&cReason: &e{REASON}'
+        - '&cBy: &e{BY}'
+        - '&cRemaining time: &e{REMAININGTIME}'
+        negative:
+        - '&fThe player &e{NAME} &fis not muted.'
